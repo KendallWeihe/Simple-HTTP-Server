@@ -1,0 +1,25 @@
+TCPEchoServer:
+  - allow for second argument that defines the path to HTML folder
+
+HandleTCPClient:
+  - parse request data
+    - request type
+    - file requested
+  - respond
+    - if request GET
+      - fine
+    - else
+      - "this request type is not supported"
+    - if file txt jpeg html or gif
+      - fine
+    - else
+      - 405 "file type not supported"
+    - finding file
+      - root_directory_path/file
+        - root_directory_path needs to be passed as parameter
+      - if request = "/"
+        - respond with index.html
+      - if file found
+        - 200 OK
+      - else
+        - 404 not found
